@@ -899,7 +899,7 @@ make_content_buf(
          *     <td>size</td><td>date</td>
          *   </tr>
          */
-        len += ngx_sizeof_ssz("<tr><td colspan=\"2\" class=\"link\"><a href=\"")
+        len += ngx_sizeof_ssz("<tr><td class=\"link\"><a href=\"")
             + entry[i].name.len + entry[i].escape /* Escaped URL */
             + ngx_sizeof_ssz("?C=x&amp;O=y") /* URL sorting arguments */
             + ngx_sizeof_ssz("\" title=\"")
@@ -1060,7 +1060,7 @@ make_content_buf(
     if (r->uri.len > 1 && alcf->hide_parent == 0) {
         b->last = ngx_cpymem_ssz(b->last,
                                  "<tr>"
-                                 "<td colspan=\"2\" class=\"link\"><a href=\"../");
+                                 "<td class=\"link\"><a href=\"../");
         if (*sort_url_args) {
             b->last = ngx_cpymem(b->last,
                                  sort_url_args,
@@ -1076,7 +1076,7 @@ make_content_buf(
 
     /* Entries for directories and files */
     for (i = 0; i < entries.nelts; i++) {
-        b->last = ngx_cpymem_ssz(b->last, "<tr><td colspan=\"2\" class=\"link\"><a href=\"");
+        b->last = ngx_cpymem_ssz(b->last, "<tr><td class=\"link\"><a href=\"");
 
         if (entry[i].escape) {
             ngx_fancyindex_escape_filename(b->last,
@@ -1513,13 +1513,6 @@ ngx_http_fancyindex_merge_loc_conf(ngx_conf_t *cf, void *parent, void *child)
     ngx_conf_merge_ptr_value(conf->ignore, prev->ignore, NULL);
     ngx_conf_merge_value(conf->hide_symlinks, prev->hide_symlinks, 0);
     ngx_conf_merge_value(conf->hide_parent, prev->hide_parent, 0);
-
-    /* Just make sure we haven't disabled the show_path directive without providing a custom header */
-    if (conf->show_path == 0 && conf->header.path.len == 0)
-    {
-        ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, "FancyIndex : cannot set show_path to off without providing a custom header !");
-        return NGX_CONF_ERROR;
-    }
 
     return NGX_CONF_OK;
 }
