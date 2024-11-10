@@ -849,18 +849,9 @@ make_content_buf(
     escape_html = ngx_escape_html(NULL, r->uri.data, r->uri.len);
     len = r->uri.len + escape_html
       + ngx_sizeof_ssz(t06_list1)
-      + ngx_sizeof_ssz(t_parentdir_entry)
       + ngx_sizeof_ssz(t07_list2)
       + ngx_fancyindex_timefmt_calc_size (&alcf->time_format) * entries.nelts
       ;
-
-    /*
-     * If we are a the root of the webserver (URI =  "/" --> length of 1),
-     * do not display the "Parent Directory" link.
-     */
-    if (r->uri.len == 1) {
-        len -= ngx_sizeof_ssz(t_parentdir_entry);
-    }
 
     entry = entries.elts;
     for (i = 0; i < entries.nelts; i++) {
@@ -878,7 +869,7 @@ make_content_buf(
          *  <a> link
          *  <r> row
          */
-        len += ngx_sizeof_ssz("<r><a href=\"")
+        len += ngx_sizeof_ssz("<a href=\"")
             + entry[i].name.len + entry[i].escape /* Escaped URL */
             + ngx_sizeof_ssz("?C=x&amp;O=y") /* URL sorting arguments */
             + ngx_sizeof_ssz(">")
