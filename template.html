@@ -11,8 +11,8 @@
 <!-- var t03_head3 -->
     </title>
     <style mode="dark"></style>
-    <style>html{background-color:var(--body)}body{margin:0;overflow-x:hidden;color:var(--text)}a{text-decoration:none;color:inherit;word-break:break-all}table{border-collapse:collapse;width:100%;border-radius:0.6rem;border:none;box-shadow:0 10px 15px -3px rgba(0,0,0,0.09),0 4px 6px -4px rgba(0,0,0,0.1);background-color:var(--box);overflow:hidden;font-size:.9rem}td,th{padding:0.5rem}td.link{padding:0;position:relative}td.link a{display:block;padding:.5rem .5rem .5rem 1rem}thead th:nth-child(1){width:65% !important}thead th:nth-child(2){width:15% !important}thead th:nth-child(3){width:20% !important}tbody>tr{transition:transform 0.25s,background 0.25s}#bread{display:flex;line-height:2rem;flex-wrap:wrap}#bread>a::after{content:'/'}#bread>a:hover{background-color:var(--hover)}noscript{padding:0.5rem;text-align:center;position:fixed;top:0;left:0;right:0;background-color:lightcoral;color:white}h2 img{height:1em;margin:0.5em 0.5em -0.1em 0.5em;transform:scale(2)}input.so:active{border-color:gray;outline:none}#switch{padding:0.5rem;border-radius:2rem;position:fixed;bottom:30vh;right:1rem;z-index:3}#switch:hover{background-color:var(--hover)}h2{position:relative;z-index:3}@media screen and (min-width:40rem){body{max-width:50rem;margin:auto}#bread>a{padding:0.2rem 0.5rem;margin:0.2rem;border-radius:0.3rem}h2{text-indent:1rem}#switch{background-color:var(--box)}input.so{float:right;width:40%;min-width:20rem}#content{width:40%;min-width:22rem;max-height:80vh;right:0;position:absolute}}@media screen and (max-width:40rem){thead,table#list>tbody>tr.dir>td.size,table#list>tbody>tr>td.date{display:none !important}input.so{position:fixed;top:1rem;left:1rem;right:1rem;z-index:10;display:none}#bread>a{padding:0 0.25rem;margin:0.25rem;border-radius:0}#bread{padding:0.25rem}h2{margin:0;padding:0.5em;background-color:rgba(255,255,255,0.8);position:sticky;top:0}#switch{top:0.75rem;bottom:auto;transform:scale(1.25);z-index:5}}</style>
-    <script>window.onload = function () { var path = document.location.pathname.split('/'), prefix = '', len = path.length - 1, a, bread = document.getElementById('bread'); for (var i = 0; i < len; i++) { a = document.createElement('a'); a.href = prefix + path[i] + '/'; a.innerText = decodeURIComponent(path[i].startsWith('.') ? path[i].substring(1) : path[i]); prefix += path[i] + '/'; bread.append(a) } }; var style = { white: ':root{--hover: lightgray; --body: #f7f8fa;--text: black;--box: #fcfcfc;}', dark: ':root{--body:#151718;--text:white;--box:#202425;--hover:#4b4b4b;}' }, e = document.getElementsByTagName('style')[0]; function cStyle(next) { if (undefined == next) var next = e.mode == 'dark' ? 'white' : 'dark'; e.mode = next; e.innerHTML = style[next]; sessionStorage.mode = next; }; if (sessionStorage) cStyle(sessionStorage.mode || 'white');</script>
+    <style> html{background-color:var(--body)}body{margin:0;overflow-x:hidden;color:var(--text)}*{box-sizing:border-box;}a{text-decoration:none;color:inherit;word-break:break-all}content{display:block;width:100%;padding:.5rem;border-radius:0.6rem;border:none;box-shadow:0 10px 15px -3px rgba(0,0,0,0.09),0 4px 6px -4px rgba(0,0,0,0.1);background-color:var(--box);overflow:hidden;font-size:.9rem}content r{display:block;transition:all 0.25s}content r:hover{transform:scale(1.05);background-color:var(--hover);}content r > *{display:inline-block;padding:.5rem .25rem;}content a{width:65%;padding-left:.75rem;}content c:nth-child(1){width:15%}content c:nth-child(2){width:20%}#bread{display:flex;line-height:2rem;flex-wrap:wrap}#bread>a::after{content:'/'}#bread>a:hover{background-color:var(--hover)}noscript{padding:0.5rem;text-align:center;position:fixed;top:0;left:0;right:0;background-color:lightcoral;color:white}#switch{padding:0.5rem;border-radius:2rem;position:fixed;bottom:30vh;right:1rem;z-index:3}#switch:hover{background-color:var(--hover)}h2{position:relative;z-index:3}@media screen and (min-width:40rem){body{max-width:50rem;margin:auto}#bread>a{padding:0.2rem 0.5rem;margin:0.2rem;border-radius:0.3rem}h2{text-indent:1rem}#switch{background-color:var(--box)}}@media screen and (max-width:40rem){#bread>a{padding:0 0.25rem;margin:0.25rem;border-radius:0}#bread{padding:0.25rem}h2{margin:0;padding:0.5em;background-color:rgba(255,255,255,0.8);position:sticky;top:0}#switch{top:0.75rem;bottom:auto;transform:scale(1.25);z-index:5}content{box-shadow:none;border-radius:0;padding:0;}} </style>
+    <script>window.onload = function () { var path = document.location.pathname.split('/'), prefix = '', len = path.length - 1, a, bread = document.getElementById('bread'); for (var i = 0; i < len; i++) { a = document.createElement('a'); a.href = prefix + path[i] + '/'; a.innerText = decodeURIComponent(path[i].startsWith('.') ? path[i].substring(1) : path[i]); prefix += path[i] + '/'; bread.append(a) } }; var style = { white: ':root{--hover: #f2f2f2; --body: #f7f8fa;--text: black;--box: #fcfcfc;}', dark: ':root{--body: #151718;--text: white;--box: #4b4b4b;--hover: #4b4b4b;}' }, e = document.getElementsByTagName('style')[0]; function cStyle(next) { if (undefined == next) var next = e.mode == 'dark' ? 'white' : 'dark'; e.mode = next; e.innerHTML = style[next]; sessionStorage.mode = next; }; if (sessionStorage) cStyle(sessionStorage.mode || 'white');</script>
 </head>
 <!-- var t04_body1 -->
 <body lang="zh">
@@ -23,44 +23,25 @@
     <h2>izCloud(vList)</h2>
     <div id="bread"></div>
 <!-- var t06_list1 -->
-    <table id="list">
-        <thead>
-            <tr>
-                <th style="width:55%"><a href="?C=N&amp;O=A">名称</a> <a
-                        href="?C=N&amp;O=D"> &darr; </a></th>
-                <th style="width:20%"><a href="?C=S&amp;O=A">大小</a> <a
-                        href="?C=S&amp;O=D"> &darr; </a></th>
-                <th style="width:25%"><a href="?C=M&amp;O=A">修改日期</a> <a href="?C=M&amp;O=D"> &darr; </a>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-<!-- var t_parentdir_entry -->
-            <tr>
-                <td colspan="2" class="link"><a href="../?C=N&amp;O=A"> &lt; 上一级目录 </a></td>
-                <td class="size">-</td>
-                <td class="date">-</td>
-            </tr>
-
+    <content>
 <!-- var NONE -->
-            <tr>
-                <td colspan="2">test file 1</td>
-                <td>123kB</td>
-                <td>date</td>
-            </tr>
-            <tr>
-                <td colspan="2">test file 2</td>
-                <td>321MB</td>
-                <td>date</td>
-            </tr>
-            <tr>
-                <td colspan="2">test file 3</td>
-                <td>666</td>
-                <td>date</td>
-            </tr>
+            <r>
+                <a>test file 1</a>
+                <c>123kB</c>
+                <c>date</c>
+            </r>
+            <r>
+                <a>test file 2</a>
+                <c>321MB</c>
+                <c>date</c>
+            </r>
+            <r>
+                <a>test file 3</a>
+                <c>666</c>
+                <c>date</c>
+            </r>
 <!-- var t07_list2 -->
-        </tbody>
-    </table>
+        </content>
 <!-- var t08_foot1 -->
 </body>
 </html>
